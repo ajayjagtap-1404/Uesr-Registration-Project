@@ -32,6 +32,7 @@ public class UserValidationFunctions {
     }
 
     public void checkEmailId() {
+        // uc3- email id
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter email id");
         String email = sc.next();
@@ -42,6 +43,21 @@ public class UserValidationFunctions {
             System.out.println("You have entered valid email ");
         } else {
             System.out.println("Sorry! you have entered invalid email");
+
+        }
+    }
+    public void checkMobileNumber() {
+        // UC4 - mobile number
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter Mobile number");
+        String mobile = sc.nextLine();
+        Pattern p = Pattern.compile("^[+][0-9]{2}\\s[0-9]{10}");
+        Matcher m = p.matcher(mobile);
+        boolean result = m.matches();
+        if (result) {
+            System.out.println("You have entered valid mobile ");
+        } else {
+            System.out.println("Sorry! you have entered invalid mobile");
 
         }
     }
