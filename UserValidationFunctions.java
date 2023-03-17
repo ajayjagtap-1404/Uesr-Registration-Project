@@ -46,18 +46,34 @@ public class UserValidationFunctions {
 
         }
     }
+
     public void checkMobileNumber() {
         // UC4 - mobile number
-        Scanner sc= new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("Enter Mobile number");
         String mobile = sc.nextLine();
         Pattern p = Pattern.compile("^[+][0-9]{2}\\s[0-9]{10}");
         Matcher m = p.matcher(mobile);
         boolean result = m.matches();
         if (result) {
-            System.out.println("You have entered valid mobile ");
+            System.out.println("You have entered valid mobile number ");
         } else {
-            System.out.println("Sorry! you have entered invalid mobile");
+            System.out.println("Sorry! you have entered invalid mobile number");
+
+        }
+    }
+
+    public void checkPassword() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Password to check");
+        String password = sc.nextLine();
+        Pattern p = Pattern.compile("[A-Za-z0-9]{8,}$");
+        Matcher m = p.matcher(password);
+        boolean result = m.matches();
+        if (result) {
+            System.out.println("You have entered valid password ");
+        } else {
+            System.out.println("Sorry! you have entered invalid password");
 
         }
     }

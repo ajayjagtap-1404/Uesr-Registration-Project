@@ -13,9 +13,10 @@ public class UserRegistrationMain {
         boolean loop = true;
         while (loop) {
             System.out.println("Enter which user information you want to validate");
-            System.out.println("1. first name \n 2. Last name \n 3. exit \n 4. Email id \n 5. Phone Number");
+            System.out.println(" 1. first name \n 2. Last name \n 3. exit \n 4. Email id \n 5. Phone Number " +
+                    "\n 6. Password ");
             int input = sc.nextInt();
-            final int firstName = 1, lastName = 2 , exit = 3, emailId = 4, phoneNumber = 5;
+            final int firstName = 1, lastName = 2 , exit = 3, emailId = 4, phoneNumber = 5, password = 6;
 
             switch (input) {
                 case firstName :
@@ -33,6 +34,9 @@ public class UserRegistrationMain {
                     break;
                 case phoneNumber:
                     validationFunctions.checkMobileNumber();
+                    break;
+                case password:
+                    validationFunctions.checkPassword();
                     break;
                 default:
                     System.out.println("Invalid input ....");
