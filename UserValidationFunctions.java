@@ -78,4 +78,20 @@ public class UserValidationFunctions {
         }
     }
 
+    public void checkPasswordAtLeastOneUpperCase() {
+        Scanner sc = new Scanner(System.in);
+        //UC6: Password with the rule of minimum 1 capital letter
+        System.out.println("Enter Password to validate ");
+        String password = sc.nextLine();
+        Pattern p = Pattern.compile("^(?=.*[A-Z])([A-Za-z0-9]){8,}$");
+        Matcher m = p.matcher(password);
+        boolean result = m.matches();
+        if (result) {
+            System.out.println("You have entered valid password ");
+        } else {
+            System.out.println("Sorry! you have entered invalid password");
+
+        }
+    }
+
 }

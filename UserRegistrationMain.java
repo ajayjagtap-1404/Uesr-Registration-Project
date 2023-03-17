@@ -14,9 +14,9 @@ public class UserRegistrationMain {
         while (loop) {
             System.out.println("Enter which user information you want to validate");
             System.out.println(" 1. first name \n 2. Last name \n 3. exit \n 4. Email id \n 5. Phone Number " +
-                    "\n 6. Password ");
+                    "\n 6. Password \n 7. password check at least 1 Upper case letter");
             int input = sc.nextInt();
-            final int firstName = 1, lastName = 2 , exit = 3, emailId = 4, phoneNumber = 5, password = 6;
+            final int firstName = 1, lastName = 2 , exit = 3, emailId = 4, phoneNumber = 5, password = 6, atLeastOneUpperCase = 7;
 
             switch (input) {
                 case firstName :
@@ -38,10 +38,14 @@ public class UserRegistrationMain {
                 case password:
                     validationFunctions.checkPassword();
                     break;
+                case atLeastOneUpperCase:
+                    validationFunctions.checkPasswordAtLeastOneUpperCase();
+                    break;
                 default:
                     System.out.println("Invalid input ....");
                     break;
             }
+            System.out.println("-------------------------------------------------------------------");
         }
     }
 }
