@@ -31,4 +31,19 @@ public class UserValidationFunctions {
         }
     }
 
+    public void checkEmailId() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter email id");
+        String email = sc.next();
+        Pattern p = Pattern.compile("^[a-z0-9]+([._+-][a-z0-9]*)?@[a-z0-9]+([.][a-z]{2,4})([.][a-z]{2})?$");
+        Matcher m = p.matcher(email);
+        boolean result = m.matches();
+        if (result) {
+            System.out.println("You have entered valid email ");
+        } else {
+            System.out.println("Sorry! you have entered invalid email");
+
+        }
+    }
+
 }
