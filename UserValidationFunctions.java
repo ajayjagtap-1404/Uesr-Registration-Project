@@ -93,6 +93,7 @@ public class UserValidationFunctions {
 
         }
     }
+
     public void checkPassWordAtLeastOneNumber() {
         Scanner sc = new Scanner(System.in);
         //Password:
@@ -105,12 +106,64 @@ public class UserValidationFunctions {
         //String passwordPattern="^(?=.*[A-Z])([A-Za-z0-9]){8,}$";
 
         //UC7: Password with the rule of minimum 1 number in the password
-        String passwordPattern="^(?=.*[0-9])(?=.*[A-Z])([A-Za-z0-9]){8,}$";
-        boolean passwordCheck = Pattern.matches(passwordPattern,password);
+        String passwordPattern = "^(?=.*[0-9])(?=.*[A-Z])([A-Za-z0-9]){8,}$";
+        boolean passwordCheck = Pattern.matches(passwordPattern, password);
         if (passwordCheck) {
             System.out.println("You have entered valid Password");
         } else {
             System.out.println("Sorry! you have entered invalid Password");
+        }
+    }
+
+    public void checkPassWordAtLeastOneSpecialCharacter() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter your Password: ");
+        String password = sc.nextLine();
+        // UC8:Password with the rule of only 1 special character
+        String passwordPattern = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[~!@#$%^&*()<>:{},.;'])([A-Za-z0-9~!@#$%^&*()<>:{},.;']){8,}$";
+        boolean passwordCheck = Pattern.matches(passwordPattern, password);
+        int count = 0;
+        for (int i = 0; i < password.length(); i++) {
+            if (!Character.isDigit(password.charAt(i)) && !Character.isLetter(password.charAt(i))
+                    && !Character.isWhitespace(password.charAt(i))) {
+                count++;
+            }
+        }
+
+        if (passwordCheck) {
+            System.out.println(count);
+            if (count == 0 || count > 1) {
+
+                System.out.println("Sorry! you have entered invalid Password");
+            } else {
+                System.out.println("You have entered valid Password");
+            }
+        } else {
+            System.out.println("Sorry! you have entered invalid Password");
+        }
+    }
+
+    public void validationOfEmail() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter your Email Address: ");
+        String email = sc.nextLine();
+        String emailPattern = "^[a-z0-9]+([._+-][a-z0-9]*)?@[a-z0-9]+([.][a-z]{2,4})([.][a-z]{2})?$";
+		/*UC9:Email Sample to check
+		 abc@yahoo.com
+		abc-100@yahoo.com
+		abc.100@yahoo.com
+		abc111@abc.com
+		abc-100@abc.net
+		abc.100@abc.com.au
+		abc@1.com
+		abc@gmail.co
+		abc+100@gmail.com
+		  */
+        boolean emailCheck = Pattern.matches(emailPattern, email);
+        if (emailCheck) {
+            System.out.println("You have entered valid Email Address");
+        } else {
+            System.out.println("Sorry! you have entered invalid Email Address");
         }
     }
 }

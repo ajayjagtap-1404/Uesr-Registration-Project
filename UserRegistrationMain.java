@@ -16,9 +16,11 @@ public class UserRegistrationMain {
             System.out.println(" 1. first name \n 2. Last name \n 3. exit \n 4. Email id \n 5. Phone Number " +
                     "\n 6. Password \n 7. password check at least 1 Upper case letter");
             System.out.println("8.  password check at least 1 digit ");
+            System.out.println("9. password check at least 1 Special character ");
+            System.out.println("10. Check email Sample");
             int input = sc.nextInt();
             final int firstName = 1, lastName = 2 , exit = 3, emailId = 4, phoneNumber = 5, password = 6, atLeastOneUpperCase = 7,
-                    atLeastOneDigit = 8;
+                    atLeastOneDigit = 8, atLeastOneSpecialCharacter = 9 ,checkEmailSample = 10;
 
             switch (input) {
                 case firstName :
@@ -45,6 +47,13 @@ public class UserRegistrationMain {
                     break;
                 case atLeastOneDigit:
                     validationFunctions.checkPassWordAtLeastOneNumber();
+                    break;
+                case atLeastOneSpecialCharacter:
+                    validationFunctions.checkPassWordAtLeastOneSpecialCharacter();
+                    break;
+                case checkEmailSample:
+                    validationFunctions.validationOfEmail();
+                    break;
                 default:
                     System.out.println("Invalid input ....");
                     break;
