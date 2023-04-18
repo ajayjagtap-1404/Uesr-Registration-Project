@@ -93,5 +93,24 @@ public class UserValidationFunctions {
 
         }
     }
+    public void checkPassWordAtLeastOneNumber() {
+        Scanner sc = new Scanner(System.in);
+        //Password:
+        System.out.println("Please enter your Password: ");
+        String password = sc.nextLine();
+        //UC5: Password with the rule of minimum 8 characters
+        //String passwordPattern="[A-Za-z0-9]{8,}$"; should have minimum 8 characters
 
+        //UC6: Password with the rule of minimum 1 capital letter
+        //String passwordPattern="^(?=.*[A-Z])([A-Za-z0-9]){8,}$";
+
+        //UC7: Password with the rule of minimum 1 number in the password
+        String passwordPattern="^(?=.*[0-9])(?=.*[A-Z])([A-Za-z0-9]){8,}$";
+        boolean passwordCheck = Pattern.matches(passwordPattern,password);
+        if (passwordCheck) {
+            System.out.println("You have entered valid Password");
+        } else {
+            System.out.println("Sorry! you have entered invalid Password");
+        }
+    }
 }
